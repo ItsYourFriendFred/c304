@@ -1,3 +1,5 @@
+// Fred Wong
+
 package com.comp304.lab2
 
 import android.os.Bundle
