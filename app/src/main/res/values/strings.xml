@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">fredwong_COMP304Lab2_ex1</string>
+    <string name="project_name">fredwong_COMP304Lab2_ex1</string>
+    <string name="app_name">LeaseOrRentHome Inc.</string>
+    <string name="main_logo_content_description">Lease or Rent Home Inc. logo</string>
+    <string name="main_button_text">Enter</string>
+
 </resources>
