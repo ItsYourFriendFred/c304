@@ -3,5 +3,11 @@
     <string name="app_name">LeaseOrRentHome Inc.</string>
     <string name="main_logo_content_description">Lease or Rent Home Inc. logo</string>
     <string name="main_button_text">Enter</string>
+    <string name="menu_apartment_text">Apartment</string>
+    <string name="menu_detached_home_text">Detached Home</string>
+    <string name="menu_semi_detached_home_text">Semi-detached Home</string>
+    <string name="menu_condominium_apartment_text">Condominium Apartment</string>
+    <string name="menu_town_house_text">Townhouse</string>
+    <string name="text_hint_select_home_type">Select a home type:</string>
 
 </resources>
