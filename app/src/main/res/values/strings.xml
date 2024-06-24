@@ -9,5 +9,57 @@
     <string name="menu_condominium_apartment_text">Condominium Apartment</string>
     <string name="menu_town_house_text">Townhouse</string>
     <string name="text_hint_select_home_type">Select a home type:</string>
+    <string name="text_address_preview">123 Eglinton Ave, Unit 201 \nToronto ON M1B 2L4</string>
+    <string name="text_price_preview">1785.00</string>
+    <string-array name="apartment_addresses">
+        <item>100 King St W, Unit 101 \nToronto, ON M5X 2A2</item>
+        <item>18 St Thomas St, Unit 202 \nToronto, ON M5S 1L7</item>
+        <item>516 Eglinton Ave W, Unit 303 \nToronto, ON M5N 1A5</item>
+    </string-array>
+    <string-array name="apartment_prices">
+        <item>1708.00</item>
+        <item>1555.00</item>
+        <item>1366.00</item>
+    </string-array>
+    <string-array name="condo_addresses">
+        <item>40 Eglinton Ave, E Unit 103 \nToronto, ON M4P 3A2</item>
+        <item>414 Dupont St, Unit 203 \nToronto, ON M5R 1V9</item>
+        <item>40 St Clair Ave W, Unit 303 \nToronto, ON M4V 1M2</item>
+    </string-array>
+    <string-array name="condo_prices">
+        <item>2022.00</item>
+        <item>1864.00</item>
+        <item>1544.00</item>
+    </string-array>
+    <string-array name="detached_home_addresses">
+        <item>504 Adelaide St W \nToronto, ON M5V 1T4</item>
+        <item>1032 Queen St W \nToronto, ON M6J 1H7</item>
+        <item>18 Yorkville Ave \nToronto, ON M4W 3Y8</item>
+    </string-array>
+    <string-array name="detached_home_prices">
+        <item>2083.00</item>
+        <item>1888.00</item>
+        <item>1450.00</item>
+    </string-array>
+    <string-array name="semi_detached_home_addresses">
+        <item>1543 Dupont St, Unit A \nToronto, ON M6P 3S5</item>
+        <item>100 King St W, Unit B \nToronto, ON M5X 1E1</item>
+        <item>827 Lansdowne Ave, Unit A \nToronto, ON M6H 3Z2</item>
+    </string-array>
+    <string-array name="semi_detached_home_prices">
+        <item>1777.00</item>
+        <item>1666.00</item>
+        <item>1333.00</item>
+    </string-array>
+    <string-array name="townhouse_addresses">
+        <item>202 Davenport Rd \nToronto, ON M5R 1J2</item>
+        <item>488 Wellington St W \nToronto, ON M5V 1E3</item>
+        <item>1288 Dundas St W \nToronto, ON M6J 1X7</item>
+    </string-array>
+    <string-array name="townhouse_prices">
+        <item>2212.00</item>
+        <item>2080.00</item>
+        <item>1654.00</item>
+    </string-array>
 
 </resources>
