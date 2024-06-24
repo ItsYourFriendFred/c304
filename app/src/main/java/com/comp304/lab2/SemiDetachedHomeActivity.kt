@@ -56,6 +56,12 @@ class SemiDetachedHomeActivity : AppCompatActivity() {
         return true
     }
 
+    // Disable selecting SemiDetachedHomeActivity when already in SemiDetachedHomeActivity
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_semi_detached_home)?.isEnabled = false
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_apartment -> {

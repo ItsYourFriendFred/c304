@@ -1,4 +1,4 @@
-// Fred Wong
+// Fred Wong; COMP304 SEC401
 
 package com.comp304.lab2
 

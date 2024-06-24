@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,6 +23,37 @@ class HomeTypeSelectionActivity : AppCompatActivity() {
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Retrieve the non-menu navigation buttons
+        val buttonApartmentType: Button = findViewById(R.id.apartmentTypeButton)
+        val buttonCondoType: Button = findViewById(R.id.condoTypeButton)
+        val buttonDetachedHomeType: Button = findViewById(R.id.detachedHomeTypeButton)
+        val buttonSemiDetachedHomeType: Button = findViewById(R.id.semiDetachedHomeTypeButton)
+        val buttonTownhouseType: Button = findViewById(R.id.townhouseTypeButton)
+
+        // Navigate to the corresponding activity
+        buttonApartmentType.setOnClickListener {
+            val intent = Intent(this, ApartmentActivity::class.java)
+            startActivity(intent)
+        }
+        buttonCondoType.setOnClickListener {
+            val intent = Intent(this, CondominiumActivity::class.java)
+            startActivity(intent)
+        }
+        buttonDetachedHomeType.setOnClickListener {
+            val intent = Intent(this, DetachedHomeActivity::class.java)
+            startActivity(intent)
+        }
+        buttonSemiDetachedHomeType.setOnClickListener {
+            val intent = Intent(this, SemiDetachedHomeActivity::class.java)
+            startActivity(intent)
+        }
+        buttonTownhouseType.setOnClickListener {
+            val intent = Intent(this, TownHouseActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

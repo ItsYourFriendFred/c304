@@ -56,6 +56,12 @@ class ApartmentActivity : AppCompatActivity() {
         return true
     }
 
+    // Disable selecting Apartment when already in apartment
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_apartment)?.isEnabled = false
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_apartment -> {

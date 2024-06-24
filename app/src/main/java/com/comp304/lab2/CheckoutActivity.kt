@@ -7,8 +7,11 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,6 +20,7 @@ import androidx.core.view.WindowInsetsCompat
 class CheckoutActivity : AppCompatActivity() {
 
     private lateinit var housingModels: List<HousingModel>
+    private var selectedItemId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,6 +94,41 @@ class CheckoutActivity : AppCompatActivity() {
 
             // Add the radio button to the group
             radioGroup.addView(radioButton)
+
+            radioButton.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    selectedItemId = itemId // Update selected item ID
+                }
+            }
+        }
+
+        // Check if the radio group is empty and set the cartHintText to tell the customer to go back and make at least one selection
+        val cartHintText: TextView = findViewById(R.id.cartHintText)
+        if (radioGroup.childCount == 0) {
+            cartHintText.text = getString(R.string.text_hint_no_selections)
+        }
+
+        // Store selected housing option and navigate + pass it to the PaymentSelectionActivity
+        val buttonCheckout = findViewById<Button>(R.id.buttonCheckout)
+        buttonCheckout.setOnClickListener {
+            if (selectedItemId != -1) {
+                val selectedAddress = getAddressForItemId(selectedItemId)
+                val selectedPrice = getPriceForItemId(selectedItemId)
+
+                // Pass selected item info & start activity
+                val intent = Intent(this, PaymentSelectionActivity::class.java).apply {
+                    putExtra("selectedAddress", selectedAddress)
+                    putExtra("selectedPrice", selectedPrice)
+                }
+                startActivity(intent)
+            } else {
+                if (radioGroup.childCount == 0) {
+                    Toast.makeText(this, getString(R.string.button_text_no_options_selected), Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this,
+                        getString(R.string.text_no_radio_options_selected), Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 

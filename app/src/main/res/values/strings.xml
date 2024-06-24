@@ -8,7 +8,7 @@
     <string name="menu_semi_detached_home_text">Semi-detached Home</string>
     <string name="menu_condominium_apartment_text">Condominium Apartment</string>
     <string name="menu_town_house_text">Townhouse</string>
-    <string name="text_hint_select_home_type">Select a home type:</string>
+    <string name="text_hint_select_home_type">Select a home type through the options menu or from the following:</string>
     <string name="text_address_preview">123 Eglinton Ave, Unit 201 \nToronto ON M1B 2L4</string>
     <string name="text_price_preview">1785.00</string>
     <string name="text_cart_button">Go to Checkout</string>
@@ -16,6 +16,38 @@
     <string name="text_cart_title">Cart</string>
     <string name="text_cart_hint">Please select one of the housing units that you\'ve browsed.</string>
     <string name="selected_items">selectedItems</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="button_confirm_payment_method">Confirm</string>
+    <string name="radio_text_debit_card">Debit Card</string>
+    <string name="radio_text_credit_card">Credit Card</string>
+    <string name="radio_text_cash">Cash</string>
+    <string name="selectedItemPayment">%1$s \n$%2$.2f</string>
+    <string name="text_payment_complete">Thank you for visiting %s!</string>
+    <string name="text_payment_info_title">Customer Billing Information\n</string>
+    <string name="text_customer_name_label">Full Name:</string>
+    <string name="text_email_label">Email:</string>
+    <string name="text_card_number_label">Card Number:</string>
+    <string name="text_phone_label">Phone Number:</string>
+    <string name="editText_hint_full_name">Enter Full Name</string>
+    <string name="editText_hint_email_address">Enter Email Address</string>
+    <string name="editText_hint_card_number">4012 8888 8888 1881</string>
+    <string name="editText_hint_phone_number">123–456–7890</string>
+    <string name="text_postal_address_label">Address: </string>
+    <string name="text_favourite_colour_label">Favourite Colour:</string>
+    <string name="editText_hint_address">123 Main Street, Toronto ON M4B 2LA</string>
+    <string name="editText_hint_favourite_colour">Green</string>
+    <string name="editText_hint_favourite_number">256</string>
+    <string name="text_favourite_number_label">Favourite Number:</string>
+    <string name="text_submit_button"><![CDATA[Submit & Pay]]></string>
+    <string name="text_error_required_field">This field is required!</string>
+    <string name="text_error_email_address">Invalid email address!</string>
+    <string name="text_error_card_number">Invalid card number!</string>
+    <string name="text_error_phone_number">Invalid phone number</string>
+    <string name="text_error_favourite_number_format">Invalid input - numbers only!</string>
+    <string name="text_return_button">Return to Home</string>
+    <string name="text_no_radio_options_selected">No options were selected! Select one of the above!</string>
+    <string name="text_hint_no_selections">No housing options were selected. Please return to browsing and make one or more selections.</string>
+    <string name="button_text_no_options_selected">Please return to housing types and make one or more selections.</string>
     <string-array name="apartment_addresses">
         <item>100 King St W, Unit 101 \nToronto, ON M5X 2A2</item>
         <item>18 St Thomas St, Unit 202 \nToronto, ON M5S 1L7</item>

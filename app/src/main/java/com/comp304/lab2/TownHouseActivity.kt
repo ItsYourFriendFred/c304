@@ -56,6 +56,12 @@ class TownHouseActivity : AppCompatActivity() {
         return true
     }
 
+    // Disable selecting TownHouseActivity when already in TownHouseActivity
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_townhouse)?.isEnabled = false
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_apartment -> {

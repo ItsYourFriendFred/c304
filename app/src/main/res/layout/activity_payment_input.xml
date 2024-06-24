@@ -4,7 +4,196 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".PaymentInputActivity">
 
+    <TextView
+        android:id="@+id/textPaymentInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/text_payment_info_title"
+        android:textColor="@color/light_teal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tableCustomerInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableCustomerInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPaymentInfoTitle">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewTableCustomerNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_customer_name_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_full_name"
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_email_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_email_address"
+                android:inputType="textEmailAddress" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewCardNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_card_number_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_card_number"
+                android:inputType="phone" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_phone_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_phone_number"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_postal_address_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextTextPostalAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_address"
+                android:inputType="textPostalAddress" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewColour"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_favourite_colour_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextFavouriteColour"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_favourite_colour"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height">
+
+            <TextView
+                android:id="@+id/textViewFavouriteNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:text="@string/text_favourite_number_label"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextFavouriteNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/row_height"
+                android:ems="10"
+                android:hint="@string/editText_hint_favourite_number"
+                android:inputType="number" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/text_submit_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableCustomerInfo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

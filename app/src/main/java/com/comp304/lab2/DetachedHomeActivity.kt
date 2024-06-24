@@ -56,6 +56,12 @@ class DetachedHomeActivity : AppCompatActivity() {
         return true
     }
 
+    // Disable selecting DetachedHomeActivity when already in DetachedHomeActivity
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_detached_home)?.isEnabled = false
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_apartment -> {

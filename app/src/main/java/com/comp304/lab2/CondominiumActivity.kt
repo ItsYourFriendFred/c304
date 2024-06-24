@@ -56,6 +56,12 @@ class CondominiumActivity : AppCompatActivity() {
         return true
     }
 
+    // Disable selecting CondominiumActivity when already in CondominiumActivity
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_condominium_apartment)?.isEnabled = false
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_apartment -> {
