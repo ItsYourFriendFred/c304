@@ -9,8 +9,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class CondominiumActivity : AppCompatActivity() {
+
+    private val apartmentModels: ArrayList<HousingModel> = ArrayList()
+    private val condoImages: IntArray = intArrayOf(R.drawable.condo1, R.drawable.condo2, R.drawable.condo3 )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,6 +27,15 @@ class CondominiumActivity : AppCompatActivity() {
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val recyclerView: RecyclerView = findViewById(R.id.condoRecyclerView)
+
+        setUpApartmentModels()
+
+        val adapter = HousingRecyclerViewAdapter(apartmentModels)
+
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -62,6 +76,19 @@ class CondominiumActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun setUpApartmentModels() {
+        val addresses = resources.getStringArray(R.array.apartment_addresses)
+        val prices = resources.getStringArray(R.array.apartment_prices)
+
+        for (i in addresses.indices) {
+            val address = addresses[i]
+            val price = prices[i].toFloatOrNull() ?: 0.0f
+            val image = condoImages[i]
+            val model = HousingModel(isChecked = false, address = address, price = price, imageResourceID = image)
+            apartmentModels.add(model)
         }
     }
 }

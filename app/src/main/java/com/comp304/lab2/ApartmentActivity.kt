@@ -37,8 +37,6 @@ class ApartmentActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
