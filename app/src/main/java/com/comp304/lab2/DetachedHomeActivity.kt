@@ -1,10 +1,13 @@
 package com.comp304.lab2
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,7 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class DetachedHomeActivity : AppCompatActivity() {
 
-    private val apartmentModels: ArrayList<HousingModel> = ArrayList()
+    private lateinit var sharedPreferences: SharedPreferences
+    private val detachedHomeModels: ArrayList<HousingModel> = ArrayList()
     private val detachedHomeImages: IntArray = intArrayOf(R.drawable.detachedhome1, R.drawable.detachedhome2, R.drawable.detachedhome3 )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +32,22 @@ class DetachedHomeActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
         val recyclerView: RecyclerView = findViewById(R.id.detachedHomeRecyclerView)
 
         setUpApartmentModels()
 
-        val adapter = HousingRecyclerViewAdapter(apartmentModels)
+        val adapter = HousingRecyclerViewAdapter(detachedHomeModels, sharedPreferences)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+
+        val buttonCheckout: Button = findViewById(R.id.detachedHomeButton)
+        buttonCheckout.setOnClickListener {
+            startActivity(Intent(this, CheckoutActivity::class.java))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -81,15 +92,15 @@ class DetachedHomeActivity : AppCompatActivity() {
     }
 
     private fun setUpApartmentModels() {
-        val addresses = resources.getStringArray(R.array.apartment_addresses)
-        val prices = resources.getStringArray(R.array.apartment_prices)
+        val addresses = resources.getStringArray(R.array.detached_home_addresses)
+        val prices = resources.getStringArray(R.array.detached_home_prices)
 
         for (i in addresses.indices) {
             val address = addresses[i]
             val price = prices[i].toFloatOrNull() ?: 0.0f
             val image = detachedHomeImages[i]
             val model = HousingModel(isChecked = false, address = address, price = price, imageResourceID = image)
-            apartmentModels.add(model)
+            detachedHomeModels.add(model)
         }
     }
 }

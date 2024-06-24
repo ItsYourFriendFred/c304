@@ -1,6 +1,7 @@
 package com.comp304.lab2
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +11,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 internal class HousingRecyclerViewAdapter(
-    private val itemsList: List<HousingModel>
+    private val itemsList: List<HousingModel>,
+    private val sharedPreferences: SharedPreferences
 ):
     RecyclerView.Adapter<HousingRecyclerViewAdapter.MyViewHolder>() {
+
+    private val checkedStateMap = mutableMapOf<Int, Boolean>()
+
+    init {
+        loadCheckedStates()
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -43,10 +52,44 @@ internal class HousingRecyclerViewAdapter(
             imageView.setImageResource(housingModel.imageResourceID)
             addressTextView.text = housingModel.address
             priceTextView.text = "Price: $${"%.2f".format(housingModel.price)}"
-            checkBoxView.isChecked = housingModel.isChecked
+
+            // Set checkbox state based on checkedStateMap
+            checkBoxView.isChecked = checkedStateMap[housingModel.imageResourceID] ?: false
+
+            // Update checkedStateMap and SharedPreferences on checkbox state change
             checkBoxView.setOnCheckedChangeListener { _, isChecked ->
-                housingModel.isChecked = isChecked
+                checkedStateMap[housingModel.imageResourceID] = isChecked
+                saveCheckedStates()
             }
         }
     }
+
+    private fun loadCheckedStates() {
+        itemsList.forEach { model ->
+            checkedStateMap[model.imageResourceID] = sharedPreferences.getBoolean(model.imageResourceID.toString(), false)
+        }
+    }
+
+    private fun saveCheckedStates() {
+        val editor = sharedPreferences.edit()
+
+        val keysToRemove = mutableSetOf<String>()
+
+        checkedStateMap.forEach { (itemId, isChecked) ->
+            if (isChecked) {
+                editor.putBoolean(itemId.toString(), true)
+            } else {
+                // If unchecked, mark for removal from SharedPreferences
+                keysToRemove.add(itemId.toString())
+            }
+        }
+
+        // Remove unchecked items from SharedPreferences
+        keysToRemove.forEach { key ->
+            editor.remove(key)
+        }
+
+        editor.apply()
+    }
+
 }

@@ -11,6 +11,11 @@
     <string name="text_hint_select_home_type">Select a home type:</string>
     <string name="text_address_preview">123 Eglinton Ave, Unit 201 \nToronto ON M1B 2L4</string>
     <string name="text_price_preview">1785.00</string>
+    <string name="text_cart_button">Go to Checkout</string>
+    <string name="text_checkout_button">Checkout</string>
+    <string name="text_cart_title">Cart</string>
+    <string name="text_cart_hint">Please select one of the housing units that you\'ve browsed.</string>
+    <string name="selected_items">selectedItems</string>
     <string-array name="apartment_addresses">
         <item>100 King St W, Unit 101 \nToronto, ON M5X 2A2</item>
         <item>18 St Thomas St, Unit 202 \nToronto, ON M5S 1L7</item>

@@ -2,10 +2,12 @@ package com.comp304.lab2
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ApartmentActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreferences: SharedPreferences
     private val apartmentModels: ArrayList<HousingModel> = ArrayList()
     private val apartmentImages: IntArray = intArrayOf(R.drawable.apartment1, R.drawable.apartment2, R.drawable.apartment3 )
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,14 +32,22 @@ class ApartmentActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
         val recyclerView: RecyclerView = findViewById(R.id.apartmentRecyclerView)
 
-        setUpApartmentModels()
+        setUpHousingModels()
 
-        val adapter = HousingRecyclerViewAdapter(apartmentModels)
+        val adapter = HousingRecyclerViewAdapter(apartmentModels, sharedPreferences)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        val buttonCheckout: Button = findViewById(R.id.apartmentButton)
+        buttonCheckout.setOnClickListener {
+            startActivity(Intent(this, CheckoutActivity::class.java))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -80,7 +91,7 @@ class ApartmentActivity : AppCompatActivity() {
         }
     }
 
-    private fun setUpApartmentModels() {
+    private fun setUpHousingModels() {
         val addresses = resources.getStringArray(R.array.apartment_addresses)
         val prices = resources.getStringArray(R.array.apartment_prices)
 
